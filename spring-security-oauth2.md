@@ -372,6 +372,36 @@ description: Spring Framework 4 를 사용한 OPEN API 만들기
 
 
 
+## 프로젝트 구조
+
+### 1. src/main/java 폴더구조
+
+* org.example
+* * app.user
+  * security
+* resources
+* * META-INF
+  * logback.xml
+* webapp
+* * resources
+  * WEB-INF
+  * * spring
+    * * appServlet
+      * * servlet-context.xml
+      * context
+      * * security-context.xml
+      * root-context.xml
+    * views
+    * web.xml
+
+
+
+### 2. src/test/java 폴더구조
+
+
+
+
+
 
 
 
