@@ -398,7 +398,11 @@ description: Spring Framework 4 를 사용한 OPEN API 만들기
 
 ### 2. src/test/java 폴더구조
 
+* controller
+* dao
+* service
 
+## 
 
 
 
