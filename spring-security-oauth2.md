@@ -408,12 +408,52 @@ description: Spring Framework 4 를 사용한 OPEN API 만들기
 
 | No | Class Name | Description |
 | :--- | :--- | :--- |
-| 1 | CustomUser | 사용자 인증정보를 담는 클래스 |
+| 1 | CustomUserDetails | 사용자 인증정보를 담는 클래스 |
 | 2 | CustomUserDetailsService | 사용자 인증여부를 판단하는 클래스 |
+
+```java
+public class CustomUserDetails extends User {
+    public CustomUserDetails (UserVO userVO, 
+                              Collection<? extends GrantedAuthority> authorities) {
+        super(
+            userVO.getId(),
+            userVO.getPassword(),
+            true,
+            true,
+            true,
+            true,
+            authorities
+        );
+    }
+}
+```
+
+```java
+public class CustomUserDetailsService implements UserDetailsService {
+
+    @Autowired
+    MyUserDao myUserDao;
+
+    @Override
+    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+        UserVO userVO = myUserDao.selectUserById(id);
+        CustomUserDetails customUserDetails = new CustomUserDetails(
+            userVO,
+            AuthorityUtils.createAuthorityList("ROLE_USER")
+        );
+        return customUserDetails;
+    }
+
+}
+```
 
 
 
 ### 2. 토큰 클래스
+
+
+
+
 
 
 
