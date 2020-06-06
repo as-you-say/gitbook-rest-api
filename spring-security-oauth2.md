@@ -2,7 +2,7 @@
 description: Spring Framework 4 를 사용한 OPEN API 만들기
 ---
 
-# OPEN API 만들기
+# OPEN API 만들기\(진행중\)
 
 제가 사용하는 개발툴은 Intellij Ultimate 2020.3.4 버전 입니다.
 
@@ -402,13 +402,22 @@ description: Spring Framework 4 를 사용한 OPEN API 만들기
 * dao
 * service
 
-## 
+## Spring Security 커스터마이징
+
+### 1. 사용자 클래스
+
+| No | Class Name | Description |
+| :--- | :--- | :--- |
+| 1 | CustomUser | 사용자 인증정보를 담는 클래스 |
+| 2 | CustomUserDetailsService | 사용자 인증여부를 판단하는 클래스 |
 
 
 
+### 2. 토큰 클래스
 
 
 
+### 3. 아이피 클래스
 
 
 
