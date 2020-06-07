@@ -2,7 +2,7 @@
 description: Spring Framework 4 를 사용한 OPEN API 만들기
 ---
 
-# OPEN API 만들기\(진행중\)
+# OPEN API 만들기
 
 제가 사용하는 개발툴은 Intellij Ultimate 2020.3.4 버전 입니다.
 
@@ -402,62 +402,13 @@ description: Spring Framework 4 를 사용한 OPEN API 만들기
 * dao
 * service
 
-## Spring Security 커스터마이징
-
-### 1. 사용자 클래스
-
-| No | Class Name | Description |
-| :--- | :--- | :--- |
-| 1 | CustomUserDetails | 사용자 인증정보를 담는 클래스 |
-| 2 | CustomUserDetailsService | 사용자 인증여부를 판단하는 클래스 |
-
-```java
-public class CustomUserDetails extends User {
-    public CustomUserDetails (UserVO userVO, 
-                              Collection<? extends GrantedAuthority> authorities) {
-        super(
-            userVO.getId(),
-            userVO.getPassword(),
-            true,
-            true,
-            true,
-            true,
-            authorities
-        );
-    }
-}
-```
-
-```java
-public class CustomUserDetailsService implements UserDetailsService {
-
-    @Autowired
-    MyUserDao myUserDao;
-
-    @Override
-    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-        UserVO userVO = myUserDao.selectUserById(id);
-        CustomUserDetails customUserDetails = new CustomUserDetails(
-            userVO,
-            AuthorityUtils.createAuthorityList("ROLE_USER")
-        );
-        return customUserDetails;
-    }
-
-}
-```
-
-
-
-### 2. 토큰 클래스
+## 
 
 
 
 
 
 
-
-### 3. 아이피 클래스
 
 
 
